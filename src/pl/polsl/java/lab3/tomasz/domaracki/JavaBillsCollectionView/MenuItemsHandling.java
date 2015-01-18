@@ -70,7 +70,7 @@ public class MenuItemsHandling {
     }
     
     /**
-     * Shows File Chooser for opening image 
+     * Shows File Chooser for image opening  
      * 
      * @param parentLayout layout to center created window
      * @return selected image by user
@@ -94,7 +94,7 @@ public class MenuItemsHandling {
     }
     
     /**
-     *  Shows File Chooser for saving database 
+     *  Shows File Chooser for database saving 
      * 
      * @param parentLayout layout to center created window
      * @return saved database file
@@ -233,10 +233,10 @@ public class MenuItemsHandling {
         }
     }
     /**
+     * Saves database with bills images on server
      * 
-     * 
-     * @param parentLayout
-     * @param defaultDbPath 
+     * @param parentLayout object to center new created window
+     * @param defaultDbPath path to database
      */
     public void saveDatabaseOnServer(javax.swing.JSplitPane parentLayout, String defaultDbPath){
         ServerConnectionController serverConnection;
@@ -254,14 +254,24 @@ public class MenuItemsHandling {
         }
     }
     
+    /**
+     * Shows new frame with information to user when saves database no server
+     * 
+     * @param parentLayout object to center new created window
+     * @return handle to created frame
+     */
     private PleaseWaitInfo showPleaseWaitDialog(javax.swing.JSplitPane parentLayout){
         PleaseWaitInfo infoDialog = new PleaseWaitInfo();
         infoDialog.setLocationRelativeTo(parentLayout);
         infoDialog.setVisible(true);
         return infoDialog;
-        
     }
     
+    /**
+     * Gets all bills paths from database
+     * 
+     * @return list of bill
+     */
     public List<String> getAllBillPhotosPaths(){
         return db.getPhotosPaths();
     }

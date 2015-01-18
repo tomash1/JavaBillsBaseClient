@@ -12,14 +12,11 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import javax.imageio.ImageIO;
-import javax.security.auth.callback.ConfirmationCallback;
-import javax.security.auth.callback.TextOutputCallback;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingWorker;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -28,7 +25,8 @@ import javax.swing.tree.TreeSelectionModel;
 import pl.polsl.java.lab3.tomasz.domaracki.JavaBillsCollectionModel.Bill;
 import pl.polsl.java.lab3.tomasz.domaracki.JavaBillsCollectionController.DatabaseController;
 /**
- *
+ * Class implements application GUI
+ * 
  * @author tomaszdomaracki
  * @version 1.0.0
  */
@@ -570,8 +568,9 @@ public class Gui extends javax.swing.JFrame{
     }//GEN-LAST:event_placeForBillToShowMouseReleased
 
     /**
+     * Called when user select from menu to open logger window
      * 
-     * @param evt 
+     * @param evt user event
      */
     private void showLoggerHelpMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showLoggerHelpMenuItemActionPerformed
        AppLogger logger = AppLogger.getInstance();
@@ -579,6 +578,11 @@ public class Gui extends javax.swing.JFrame{
        logger.setVisible(true);
     }//GEN-LAST:event_showLoggerHelpMenuItemActionPerformed
     
+    /**
+     * Called when user select from menu to save database on server
+     * 
+     * @param evt user event
+     */
     private void saveDatabaseOnServerFileMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveDatabaseOnServerFileMenuItemActionPerformed
         menuItems.saveDatabaseOnServer(jSplitPane2, defaultDbPath);
     }//GEN-LAST:event_saveDatabaseOnServerFileMenuItemActionPerformed

@@ -1,15 +1,19 @@
 package pl.polsl.java.lab3.tomasz.domaracki.JavaBillsCollectionView;
 
 /**
- * Class implements handling for elements in program menu
+ * Class implements simple logger for application
  * 
  * @author tomaszdomaracki
  * @version 1.0.0
  */
-
 public class AppLogger extends javax.swing.JFrame {
-
+    /**
+     * Representing logger text
+     */
     private String loggerText;
+    /**
+     * Representing created instance of logger
+     */
     private static AppLogger instance = null;
     /**
      * Creates new form AppLogger
@@ -19,7 +23,11 @@ public class AppLogger extends javax.swing.JFrame {
         loggerText = "";
     }
 
-        
+    /**
+     * Implementation of singleton pattern
+     * 
+     * @return instance of logger
+     */    
     public static AppLogger getInstance(){
         if (instance == null){
             instance = new AppLogger();
@@ -77,12 +85,21 @@ public class AppLogger extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    /**
+     * Cleares logger when button action is performed
+     * @param evt button event
+     */
     private void clearLogButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearLogButtonMouseReleased
         loggerText ="";
         loggerTextArea.setText(loggerText);
     }//GEN-LAST:event_clearLogButtonMouseReleased
     
+    /**
+     * Put new line of text in logger
+     * 
+     * @param text new text to print in logger
+     */
     public void addTextToLog(String text){
         if (loggerText.equals("")){
             loggerText = text;
@@ -94,6 +111,11 @@ public class AppLogger extends javax.swing.JFrame {
         loggerTextArea.setText(loggerText);
     }
     
+    /**
+     * Gets text from logger
+     * 
+     * @return logger text
+     */
     public String getLogText(){
         return loggerText;
     }

@@ -58,6 +58,11 @@ public class AddNewBillDialog extends javax.swing.JDialog {
     
     /**
      * Creates new form AddNewBillDialog
+     * 
+     * @param parent parent frame
+     * @param modal 
+     * @param parentLayout parent layout to center new created dialog
+     * @param db opened database
      */
     public AddNewBillDialog(java.awt.Frame parent, boolean modal, JSplitPane parentLayout, DatabaseController db) {
         super(parent, modal);

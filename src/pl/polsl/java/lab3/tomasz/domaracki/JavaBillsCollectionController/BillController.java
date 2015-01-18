@@ -38,10 +38,14 @@ public class BillController {
         
         return new Bill(); 
     }
+   
     /**
      * Creates new bills with given name
      * 
      * @param newBillName string representing new bill name
+     * @param dateOfGuarantee date of guarantee on bill
+     * @param billPhoto bill photo file
+     * @param guaranteeDuration duration of guarantee for product on bill
      * @return new object of type Bill
      */
     public Bill createNewBill(String newBillName, String dateOfGuarantee, File billPhoto, int guaranteeDuration){

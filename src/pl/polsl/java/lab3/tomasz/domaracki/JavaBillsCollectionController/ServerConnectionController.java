@@ -1,4 +1,3 @@
-
 package pl.polsl.java.lab3.tomasz.domaracki.JavaBillsCollectionController;
 
 import java.io.BufferedOutputStream;
@@ -14,24 +13,52 @@ import javax.swing.SwingWorker;
 import pl.polsl.java.lab3.tomasz.domaracki.JavaBillsCollectionModel.ServerClient;
 import pl.polsl.java.lab3.tomasz.domaracki.JavaBillsCollectionView.AppLogger;
 import pl.polsl.java.lab3.tomasz.domaracki.JavaBillsCollectionView.PleaseWaitInfo;
+
 /**
- * Class designed to become a model in MVC architecture
- * Manages database in application
+ * Class designed to become a controller for connection with server
  * 
  * @author tomaszdomaracki
  * @version 1.0.0 
  */
-
 public class ServerConnectionController extends SwingWorker<Void, Void>{
     
+    /**
+     * Representing connection model
+     */
     private ServerClient model;
+    /**
+     * Representing application logger
+     */
     private AppLogger logger;
+    /**
+     * Representing server output stream
+     */
     private BufferedOutputStream serverStream;
+    /**
+     * Representing server input stream
+     */
     private BufferedReader serverAnswerStream;
+    /**
+     * Representing path to opened database
+     */
     private String defaultDbPath;
+    /**
+     * Representing list of all bills photos in database
+     */
     private List<String> photosPaths;
+    /**
+     * Representing handle to connection info window
+     */
     private PleaseWaitInfo infoFrame;
-            
+    
+    /**
+     * The initiating constructor of the class ServerConnectionController
+     * 
+     * @param defaultDbPath database path
+     * @param photosPaths   list of all bills in database
+     * @param infoFrame     handle to info window
+     * @throws              IOException 
+     */
     public ServerConnectionController(String defaultDbPath, List<String> photosPaths, PleaseWaitInfo infoFrame) throws IOException{
         logger = AppLogger.getInstance();
         try{
@@ -64,10 +91,18 @@ public class ServerConnectionController extends SwingWorker<Void, Void>{
         super.done();
     }
     
+    /**
+     * Returns server output stream
+     * 
+     * @return server output stream
+     */
     public BufferedReader getServerStream(){
         return model.getServerStream();
     }
     
+    /**
+     * Sends to server code which say that transmission is over
+     */
     public void sendEndOfTransmissionCode(){       
         try {
             serverStream.write("EOT".getBytes(), 0, (int)"EOT".length());
@@ -80,6 +115,9 @@ public class ServerConnectionController extends SwingWorker<Void, Void>{
         }
     }
     
+    /**
+     * Sends all photo files to server
+     */
     public void sendAllPhotoFilesToServer(){
         for(String photoPath : photosPaths){
             File photoFile = new File(photoPath);
@@ -102,6 +140,9 @@ public class ServerConnectionController extends SwingWorker<Void, Void>{
         }
     }
     
+    /**
+     * Sends database file to server
+     */
     public void sendDatabaseFileToServer(){
         File dbFile = new File(defaultDbPath);
         try {
@@ -119,6 +160,9 @@ public class ServerConnectionController extends SwingWorker<Void, Void>{
         }
     }
     
+    /**
+     * Shows dialog to user when can not connect to server
+     */
     private void showServerNotFoundDialog(){
         String message = "Can not find server. More info in logger.";
         JOptionPane infoBox = new JOptionPane(message, JOptionPane.INFORMATION_MESSAGE);
@@ -129,6 +173,9 @@ public class ServerConnectionController extends SwingWorker<Void, Void>{
         logger.addTextToLog(messageToLog);
     }
     
+    /**
+     * Shows dialog to user that everything is sent
+     */
     private void showTransmissionSuccessfulDialog(){
         String message = "Database saved on server.";
         JOptionPane infoBox = new JOptionPane(message, JOptionPane.INFORMATION_MESSAGE);
@@ -139,6 +186,9 @@ public class ServerConnectionController extends SwingWorker<Void, Void>{
         logger.addTextToLog(messageToLog);
     }
     
+    /**
+     * Shows error dialog to user when something failed while sending files
+     */
     private void showTransmissionErrorDialog(){
         String message = "Error when sending files to server occured.";
         JOptionPane errorBox = new JOptionPane(message, JOptionPane.ERROR_MESSAGE);
@@ -147,6 +197,10 @@ public class ServerConnectionController extends SwingWorker<Void, Void>{
         infoDialog.setVisible(true);
     }
     
+    /**
+     * Writes to log message from server
+     * @throws IOException 
+     */
     private void writeToLogMessageFromServer() throws IOException{
         boolean receivedMessage = false;
         String message ="";

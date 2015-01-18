@@ -2,44 +2,43 @@ package pl.polsl.java.lab3.tomasz.domaracki.JavaBillsCollectionModel;
 
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
-import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 
 /**
- * Class representing temporary database created for testing
+ * Class responsible for connecting to server
  *
- * @author toamszdomaracki
+ * @author tomaszdomaracki
  * @version 1.0.0
  */
 
 public class ServerClient {
     
     /**
-     * 
+     * Representing server ip address
      */
     private final String serverIpAddress = "127.0.0.1";
     /**
-     * 
+     * Representing port on server
      */
     private final int serverPort = 9991;
     /**
-     * 
+     * Representing socket on client side
      */
     private final Socket clientSocket;
     /**
-     * 
+     * Representing output to server buffer
      */
     private final BufferedOutputStream out;
     /**
-     * 
+     * Representing input from server buffer
      */
     private final BufferedReader in;
     
     /**
+     * The initiating constructor of the class ServerClient
      * 
      * @throws java.io.IOException
      */
@@ -51,10 +50,20 @@ public class ServerClient {
         in           = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));        
     }    
     
+    /**
+     * Gets server input buffer
+     * 
+     * @return input stream
+     */
     public BufferedReader getServerStream(){
         return in;
     }
     
+    /**
+     * Gets server output buffer
+     * 
+     * @return output stream
+     */
     public BufferedOutputStream getServerDataSendStream(){
         return out;
     }

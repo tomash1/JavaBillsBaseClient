@@ -1,11 +1,5 @@
 package pl.polsl.java.lab3.tomasz.domaracki.JavaBillsCollectionView;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -325,7 +319,7 @@ public class EditBillDialog extends javax.swing.JDialog {
     /**
      * Initialize selectedBill, and its photo
      * 
-     * @param selectedBill 
+     * @param selectedBill selected bill in tree
      */
     public void setSelectedBill(Bill selectedBill){
         this.selectedBill = selectedBill;

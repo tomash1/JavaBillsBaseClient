@@ -51,8 +51,9 @@ public class TemporaryDatabase implements Serializable{
         return base.size();
     }
     /**
+     * Deletes object from database
      * 
-     * @param objectToDelete 
+     * @param objectToDelete object to delete from database
      */
     public void deleteFromDatabase(Object objectToDelete){
         base.remove(objectToDelete);

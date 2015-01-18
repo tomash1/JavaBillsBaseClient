@@ -37,7 +37,7 @@ public class DatabaseController {
     /**
      * Adds new object to database
      * 
-     * @param newObj 
+     * @param newObj new object to add
      */
     public void addToDatabase(Object newObj){
         db.addToDatabase(newObj);
@@ -56,7 +56,7 @@ public class DatabaseController {
     /**
      * Deletes given object from database
      * 
-     * @param objectToDelete 
+     * @param objectToDelete object to delete from database
      */
     public void deleteFromDatabase(Object objectToDelete){
         db.deleteFromDatabase(objectToDelete);
@@ -91,7 +91,7 @@ public class DatabaseController {
     }
     
     /**
-     * reads database from file (class deserialization)
+     * Reads database from file (class deserialization)
      * 
      * @param path path to database file
      * @throws IOException 
@@ -116,6 +116,11 @@ public class DatabaseController {
         fileToReadObj.close();
     }
     
+    /**
+     * Returns all bills paths from database
+     * 
+     * @return bills paths
+     */
     public List<String> getPhotosPaths(){
         List<String> photosPaths = new ArrayList<>();
         
