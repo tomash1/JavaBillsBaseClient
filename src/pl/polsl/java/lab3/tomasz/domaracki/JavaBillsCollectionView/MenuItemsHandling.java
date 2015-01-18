@@ -241,13 +241,15 @@ public class MenuItemsHandling {
     public void saveDatabaseOnServer(javax.swing.JSplitPane parentLayout, String defaultDbPath){
         ServerConnectionController serverConnection;
         AppLogger logger = AppLogger.getInstance();
+        PleaseWaitInfo infoDialog = null;
         try{
-            PleaseWaitInfo infoDialog = showPleaseWaitDialog(parentLayout);
+            infoDialog = showPleaseWaitDialog(parentLayout);
             
             serverConnection = new ServerConnectionController(defaultDbPath, getAllBillPhotosPaths(), infoDialog);
             serverConnection.execute();
         }
         catch(IOException ex){
+            infoDialog.setVisible(false);
             logger.addTextToLog(ex.getMessage());
         }
     }

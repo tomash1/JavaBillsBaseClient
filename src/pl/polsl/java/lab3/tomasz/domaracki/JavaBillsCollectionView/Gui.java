@@ -49,7 +49,7 @@ public class Gui extends javax.swing.JFrame{
         menuItems = new MenuItemsHandling(db);
         initComponents();
         initToolbar();
-        defaultDbPath = "resources\\default.billdb";
+        defaultDbPath = "resources/default.billdb";
         allBillsFromDatabaseTree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
         allBillsFromDatabaseTree.addTreeSelectionListener(new TreeSelectionListener() {
             
@@ -488,7 +488,7 @@ public class Gui extends javax.swing.JFrame{
      */
     private void saveDbButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveDbButtonMouseEntered
         try {
-            BufferedImage icon = ImageIO.read(new File("resources\\saveHov.png"));
+            BufferedImage icon = ImageIO.read(new File("resources/saveHov.png"));
             BufferedImage resizedIcon = resizeImage(icon, saveDbButton);
             saveDbButton.setIcon(new ImageIcon(resizedIcon));
         } catch (IOException ex) {
@@ -512,7 +512,7 @@ public class Gui extends javax.swing.JFrame{
      */
     private void saveDbButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveDbButtonMousePressed
         try {
-            BufferedImage icon = ImageIO.read(new File("resources\\saveClick.png"));
+            BufferedImage icon = ImageIO.read(new File("resources/saveClick.png"));
             BufferedImage resizedIcon = resizeImage(icon, saveDbButton);
             saveDbButton.setIcon(new ImageIcon(resizedIcon));
         } catch (IOException ex) {
@@ -527,7 +527,7 @@ public class Gui extends javax.swing.JFrame{
      */
     private void saveDbButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveDbButtonMouseReleased
         try {
-            BufferedImage icon = ImageIO.read(new File("resources\\saveHov.png"));
+            BufferedImage icon = ImageIO.read(new File("resources/saveHov.png"));
             BufferedImage resizedIcon = resizeImage(icon, saveDbButton);
             saveDbButton.setIcon(new ImageIcon(resizedIcon));
         } catch (IOException ex) {
@@ -707,7 +707,7 @@ public class Gui extends javax.swing.JFrame{
      */
     private void initToolbar(){
         try {
-            BufferedImage icon = ImageIO.read(new File("resources\\save.png"));
+            BufferedImage icon = ImageIO.read(new File("resources/save.png"));
             BufferedImage resizedIcon = resizeImage(icon, saveDbButton);
             saveDbButton.setIcon(new ImageIcon(resizedIcon));
         } catch (IOException ex) {
